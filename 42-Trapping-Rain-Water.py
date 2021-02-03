@@ -11,7 +11,7 @@ class Solution:
                         = max(H[0], ..., H[i])
             right_max(i) = height of the tallest building on the right side of i
                          = max(H[i], ..., H[n-1])
-        height of trapped water at i = min(left_max(i), right_max(i))
+        level of trapped water at i = min(left_max(i), right_max(i))
         w_i (trapped water at i) = min(left_max(i), right_max(i)) - H[i]
         total water += w_i
 
@@ -24,12 +24,12 @@ class Solution:
 
     suppose height[L] < height[R]
         left_max(L) = max(left_max(L-1), height[L])
-        since right_max[L] >= right_max[L] >= height[R], we have w_L = min(left_max(L), right_max(L)) - H[i] = left_max(L) - H[i]
+        since right_max[L] >= right_max[R] >= height[R], we have w_L = min(left_max(L), right_max(L)) - H[i] = left_max(L) - H[i]
         as we've known w_L, we can move to L+1
 
     suppose height[L] >= height[R]
         right_max(R) = max(right_max(R+1), height[R])
-        since left_max[R] >= left_max[R] >= height[L], we have w_L = min(left_max(R), right_max(R)) - H[i] = right_max(R) - H[i]
+        since left_max[R] >= left_max[L] >= height[L], we have w_R = min(left_max(R), right_max(R)) - H[i] = right_max(R) - H[i]
         as we've known w_R, we can move to R-1
 
     We can update left_max(L) and right_max(R) in O(1) if we track left_max(L-1) and right_max(R+1)
