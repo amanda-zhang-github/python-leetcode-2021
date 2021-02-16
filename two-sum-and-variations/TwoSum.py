@@ -61,15 +61,20 @@ class TwoSum:
                 r -= 1
         return None
 
-    """
-    Find all unique pair in the array which gives the sum of the target. 
+    # ========================================================================
+    """ 
+    Find all unique pairs in the array which gives the sum of the target. 
     Leetcode 上没有，是以上case的general，也是3-sum的基础
     Assumption:
     1. such pair might not exist
-    2. can have duplicate solution, but need to eliminate duplicates in the return result
-    3. 要求return value，因此可以sort input array
+    2. can have duplicate solutions, but need to eliminate duplicates in the return result
+    3. 要求return value
     
     As there can be multiple solutions, should not stop after finding one solution
+    """
+
+    """
+    If we can sort the input array
     run time: O(nlogn), space O(1)
     """
     @staticmethod
@@ -106,7 +111,7 @@ class TwoSum:
             # if the complementary number has been seen and hasn't been used (means same solution hasn't been added)
             count = value_to_count.get(complementary, 0)
             if count > 0:
-                # sort the pair to ensure set can remove duplicates
+                # sort the pair to ensure [1, 2], [2, 1] is regarded as the same in set
                 pairs.add(sorted([num, complementary]))
                 # mark complementary as used
                 value_to_count[complementary] = count - 1
