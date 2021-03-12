@@ -45,7 +45,7 @@ class TwoSum:
     Pf: assume {L*, R*} is the solution
         because the 2 pointers moves from the boundary to the center, at some point, one of them will first reach the solution
         w.l.o.g, assume L reaches L* first, then 
-          nums[L] + nums[R] = nums[L*] + nums[R] >= nums[L*] + nums[R*] > target
+          nums[L] + nums[R] = nums[L*] + nums[R] >= nums[L*] + nums[R*] = target
         according to the idea, we will move R to R-1 recursively, so eventually will reach R*
     """
     @staticmethod
