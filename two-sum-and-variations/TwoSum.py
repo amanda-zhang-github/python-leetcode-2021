@@ -68,7 +68,7 @@ class TwoSum:
     Assumption:
     1. such pair might not exist
     2. can have duplicate solutions, but need to eliminate duplicates in the return result
-    3. 要求return value
+    3. 要求return value pairs 而不是index pairs (因为只有value pair才会有duplicate)
     
     As there can be multiple solutions, should not stop after finding one solution
     """
@@ -89,7 +89,7 @@ class TwoSum:
                 l += 1
                 r -= 1
                 # increment l to the next different number to avoid duplicate
-                # nums[l] different && nums[l] + nums[r] = -a -> nums[r] different
+                # nums[l] different && nums[l] + nums[r] == target --> nums[r] different
                 while l < r and nums[l] == nums[l - 1]:
                     l += 1
             elif total < target:
