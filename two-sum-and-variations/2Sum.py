@@ -45,7 +45,7 @@ class TwoSum:
     Pf: assume {L*, R*} is the solution
         because the 2 pointers moves from the boundary to the center, at some point, one of them will first reach the solution
         w.l.o.g, assume L reaches L* first, then 
-          nums[L] + nums[R] = nums[L*] + nums[R] >= nums[L*] + nums[R*] > target
+          nums[L] + nums[R] = nums[L*] + nums[R] >= nums[L*] + nums[R*] = target
         according to the idea, we will move R to R-1 recursively, so eventually will reach R*
     """
     @staticmethod
@@ -68,7 +68,7 @@ class TwoSum:
     Assumption:
     1. such pair might not exist
     2. can have duplicate solutions, but need to eliminate duplicates in the return result
-    3. 要求return value
+    3. 要求return value pairs 而不是index pairs (因为只有value pair才会有duplicate)
     
     As there can be multiple solutions, should not stop after finding one solution
     """
@@ -89,7 +89,7 @@ class TwoSum:
                 l += 1
                 r -= 1
                 # increment l to the next different number to avoid duplicate
-                # nums[l] different && nums[l] + nums[r] = -a -> nums[r] different
+                # nums[l] different && nums[l] + nums[r] == target --> nums[r] different
                 while l < r and nums[l] == nums[l - 1]:
                     l += 1
             elif total < target:
