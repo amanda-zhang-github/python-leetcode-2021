@@ -6,7 +6,9 @@
  - [Itertools](#itertools)
 
 <a name="variable">
+
 ### Variable
+
 </a>
 - Variable is case sensitive, `a` and `A` are different variables
 - Assign multiple variables: 
@@ -20,7 +22,9 @@
   To create/change value of a global variable, you have to use the keyword `global`.
 
 <a name="set">
+
 ### Set
+
 </a>
 
 Set items are **unordered**, **unique** and **immutable**.
@@ -53,7 +57,9 @@ Set items are **unordered**, **unique** and **immutable**.
 Frozenset is immutable, therefore you can't add/remove items. Recall that set items must be immutable, so frozenset is useful when you want to create a set of set (or other case that requires an immutable variable).
 
 <a name="itertools">
+
 ## [itertools](https://pymotw.com/3/itertools/index.html): module for working with sequential data
+
 </a>
 Benefits:
 
