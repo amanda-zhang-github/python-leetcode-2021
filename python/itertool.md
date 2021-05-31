@@ -114,8 +114,8 @@ This part was confusing to me, so I think I need to write it down.
 
 - Slicing can be used to modify, insert, delete elements into specific position.
   - modify： `L[1:4] = [1, 2, 3] -> L = ['a', 1, 2, 3, 'e', 'f', 'g', 'h', 'i']`
-    - insert: `L[1:1] =  [1, 2] -> L = [1, 2, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']`
-    - delete: `L[:5] = [] -> ['f', 'g', 'h', 'i']`
+  - insert: `L[1:1] =  [1, 2] -> L = ['a', 1, 2, 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']`
+  - delete: `L[:5] = [] -> ['f', 'g', 'h', 'i']`
 - Assignment together with list slicing generates a **shallow copy** of the sliced part.
 
 	```
@@ -131,6 +131,7 @@ Slicing result is iterable, so if we only use it as a way to specify how to loop
 ### Duplicate
 
 </a>
+
 `tee(iterator, n)` returns n iterators and they refer to the same underlying interator. Therefore, once the new ones are generated, the original iterator should not be used. Otherwise, the generated iterator will also change. 
 
 ```
@@ -196,6 +197,7 @@ Difference between `map` and `starmap`: `map` can take multiple iterators, where
 ### Group
 
 </a>
+
 `groupby(iterable, key_func)` returns an iterator that produces sets of values organized by a common key.
 
 <a name="combine">
