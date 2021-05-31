@@ -6,7 +6,9 @@
  - [Itertools](#itertools)
 
 <a name="variable">
+
 ### Variable
+
 </a>
 - Variable is case sensitive, `a` and `A` are different variables
 - Assign multiple variables: 
@@ -22,8 +24,11 @@
   To create/change value of a global variable, you have to use the keyword `global`.
 
 <a name="set">
+
 ### Set
+
 </a>
+
 Set items are **unordered**, **unique** and **immutable**.
 
 #### Create a set
@@ -57,8 +62,11 @@ Set items are **unordered**, **unique** and **immutable**.
 Frozenset is immutable, therefore you can't add/remove items. Recall that set items must be immutable, so frozenset is useful when you want to create a set of set (or other case that requires an immutable variable).
 
 <a name="itertools">
+
 ## [itertools](https://pymotw.com/3/itertools/index.html): module for working with sequential data
+
 </a>
+
 Benefits:
 
 - Simple functions hooked together to express more complicated use case
@@ -76,12 +84,14 @@ Iterator functions can be grouped into the following categories:
 - [Generate Iterables](#generate)
 
 <a name="merge">
+
 ### Merge
+
 </a>
+
 For a list of iterable containers, we can do the merge vertically or horizontally.
 
 #### Vertical Merge (水平合并)
-
 `chain()` takes several iterators as arguments and returns a single iterator that produces the contents of all inputs
 
 ```
@@ -98,7 +108,6 @@ chain.from_iterable(['abc', 'def'])
 ```
 
 #### Horizontal Merge (垂直合并)
-
 `zip()` and `zip_longest()` both return an iterator that contains the **elements** of **several** iterators into tuples.
 
 - `zip` stops when the first iterator is exhausted
@@ -122,7 +131,9 @@ zip_longest(
 # ({'name': 'tim', 'gender': 'male'}, {'membership': False})
 ```
 <a name="split">
+
 ### Split
+
 </a>
 
 #### List slicing 
@@ -179,7 +190,9 @@ This part was confusing to me, so I think I need to write it down.
 Slicing result is iterable, so if we only use it as a way to specify how to loop a list, here is an iterator version `islice(iterable, start, stop, step)`, which uses less memory. `islice` takes the same parameters as the `slice` operator. Ulike in `slice`, the stop parameter in `islice` is madatory.
 
 <a name="duplicate">
+
 ### Duplicate
+
 </a>
 `tee(iterator, n)` returns n iterators and they refer to the same underlying interator. Therefore, once the new ones are generated, the original iterator should not be used. Otherwise, the generated iterator will also change. 
 
@@ -207,8 +220,11 @@ print('i2:', list(i2))  # -> 1, 2, 3, 4
 **It can be used to feed the same set of data into multiple algorithms to be processed in parallel.**
 
 <a name="convert">
+
 ### Convert Input
+
 </a>
+
 Convert means apply a function on the values in the input iterators and return a new iterator.
 
 - `map(func, iterable(s))`
@@ -225,7 +241,9 @@ Convert means apply a function on the values in the input iterators and return a
 Difference between `map` and `starmap`: `map` can take multiple iterators, where the number of iterators equals to the number of func's parameters; `starmap` takes single iterator, and each value in the iterator can be a tuple of multiple elements.
 
 <a name="filter">
+
 ### Filter
+
 </a>
 
 | Function | Condition |
@@ -237,12 +255,16 @@ Difference between `map` and `starmap`: `map` can take multiple iterators, where
 | `compress(iter, selector(boolean value iterable))` | take all item which the selector is True or 1|
 
 <a name="group">
+
 ### Group
+
 </a>
 `groupby(iterable, key_func)` returns an iterator that produces sets of values organized by a common key.
 
 <a name="combine">
+
 ### Combine (排列组合)
+
 </a>
 
 - `accumulate(iterable, func)` returns the cumulative result of the function at each step
@@ -277,11 +299,13 @@ Difference between `map` and `starmap`: `map` can take multiple iterators, where
   - `combination(iterable, l)` generates all possible combination of length l
 
 <a name="generate">
+
 ### Generate Iterables
+
 </a>
 
-| Function | Condition |
+| Function | |
 | ------ | ------ |
-| `count(start, step)` | returns an iterator that produces consecutive numbers, **indefinitely**. Start and step are both optional, start defaults to 0, step defaults to 1 |
-| `cycle(iterable)` | returns an iterator that repeats the input iterable indefinitely |
-| `repeat(val, num)` | returns an iterator that produces the input value for given number of times. If the number is not specified, repeat indefinitely |
+| `count(start, step)` | Returns an iterator that produces consecutive numbers, **indefinitely**. Start and step are both optional, start defaults to 0, step defaults to 1 |
+| `cycle(iterable)` | Returns an iterator that repeats the input iterable indefinitely |
+| `repeat(val, num)` | Returns an iterator that produces the input value for given number of times. If the number is not specified, repeat indefinitely |
